@@ -22,7 +22,7 @@ export class GenAIService {
         return this.#http.post<GeminiResponse>(this.endpoint, {prompt}).pipe(
             // map the response to just return the generated text
             map(
-                response => response.candidates[0]?.content.parts[0].text || 'No response',
+                response => response.candidates[0]?.content.parts[0].text || 'No response'
             )
         )
     }
