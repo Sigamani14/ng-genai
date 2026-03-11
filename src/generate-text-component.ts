@@ -94,6 +94,7 @@ import { finalize } from "rxjs";
         </button>      
       </form>
       @let response = generatedResponse();
+      @if(!loading() && response.text) {
       <div class="response-section">
           <h3>Response:</h3>
           
@@ -104,6 +105,7 @@ import { finalize } from "rxjs";
           </div>
           
       </div>
+      }
     </div>
   `
 })

@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { map } from "rxjs";
+import { environment } from "./environment";
 
 export type GeminiResponse = {
     candidates: {
@@ -16,8 +17,8 @@ export type GeminiResponse = {
 export class GenAIService {
     readonly #http = inject(HttpClient);
 
-    endpoint = 'http://localhost:3000/generate';
-
+    endpoint = environment.Node_API_Endpoint;
+    
     generateContent(prompt: string) {
         return this.#http.post<GeminiResponse>(this.endpoint, {prompt}).pipe(
             // map the response to just return the generated text
